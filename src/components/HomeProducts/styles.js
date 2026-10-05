@@ -9,7 +9,7 @@ export const ProductsSection = styled.section`
 
   .container {
     width: 100%;
-    max-width: 900px; /* 🔥 CENTRALIZA O BLOCO */
+    max-width: 1180px;
     margin: 0 auto;
 
     display: flex;
@@ -44,21 +44,22 @@ export const ProductsSection = styled.section`
 
 export const ProductsGrid = styled.div`
   width: 100%;
-  max-width: 1100px;
+  max-width: 1180px;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 3rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
   margin: 4rem auto 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 `;
 
 export const ProductCard = styled.div`
   background: #191817;
   border: 1px solid rgba(243, 213, 154, 0.16);
-  border-radius: 4px;
+  border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease;
 
@@ -68,8 +69,10 @@ export const ProductCard = styled.div`
 
   .image {
     position: relative;
-    height: 320px;
+    height: clamp(300px, 32vw, 400px);
+    margin: 12px 12px 0;
     overflow: hidden;
+    border-radius: 12px;
     background: ${({ theme }) => theme.colors.dark};
 
     img {
@@ -86,7 +89,7 @@ export const ProductCard = styled.div`
   }
 
   .content {
-    padding: 2rem;
+    padding: 1.5rem 1.75rem 1.75rem;
     text-align: left;
   }
 
@@ -101,7 +104,18 @@ export const ProductCard = styled.div`
     color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
     font-size: 0.95rem;
-    max-width: 420px;
+    max-width: none;
     margin: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    .image {
+      height: clamp(260px, 72vw, 360px);
+      margin: 10px 10px 0;
+    }
+
+    .content {
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
   }
 `;

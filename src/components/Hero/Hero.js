@@ -16,7 +16,6 @@ export default function Hero() {
             que entendem que cada detalhe importa.
           </p>
           <CTAButton href="#produtos">CONHEÇA NOSSOS PRODUTOS <span aria-hidden="true">→</span></CTAButton>
-          <a className="secondary-link" href="#contato">FALE COM A FE PAN</a>
         </HeroContent>
       </div>
     </HeroSection>

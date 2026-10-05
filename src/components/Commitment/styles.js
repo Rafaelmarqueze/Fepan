@@ -8,7 +8,7 @@ export const CommitmentSection = styled.section`
 export const CommitmentWrapper = styled.div`
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  align-items: center;
+  align-items: stretch;
   gap: 60px;
 
   @media (max-width: 768px) {
@@ -80,22 +80,19 @@ export const CommitmentCard = styled.div`
 export const CommitmentImage = styled.div`
   position: relative;
   width: 100%;
-  max-width: 460px;
-  justify-self: center;
-  height: 480px;
+  min-height: 100%;
 
   img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-
-    @media (max-width: 768px) {
-      height: 100%;
-    }
   }
 
   @media (max-width: 768px) {
-    height: 320px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
   }
 `

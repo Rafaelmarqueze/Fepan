@@ -14,6 +14,12 @@ export const HeroSection = styled.section`
   color: ${({ theme }) => theme.colors.white};
   padding: 130px 0 90px;
 
+  .container {
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 3rem;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     min-height: 760px;
     background-image:
@@ -21,6 +27,10 @@ export const HeroSection = styled.section`
       url('/images/hero.jpg');
     background-position: center, 65% center;
     background-size: cover, auto 100%;
+
+    .container {
+      padding: 0 1.25rem;
+    }
   }
 `
 export const HeroContent = styled.div`
