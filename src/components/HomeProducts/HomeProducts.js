@@ -1,43 +1,54 @@
 "use client";
 import { ProductsSection, ProductsGrid, ProductCard } from './styles';
+import Image from 'next/image';
 
 export default function HomeProducts() {
   return (
     <ProductsSection id="produtos">
       <div className="container">
         <h2>
-          A BASE <span>PERFEITA</span> PARA O SEU HAMBÚRGUER
+          PÃES FEITOS PARA <span>ELEVAR</span> CADA EXPERIÊNCIA
         </h2>
 
         <p>
-          Cada hamburgueria tem seu estilo. Por isso, oferecemos soluções que se
-          adaptam à sua operação, garantindo sempre o máximo de qualidade e
-          padronização.
+          Do clássico ao especial, cada produto nasce com um propósito: entregar
+          uma experiência melhor em cada aplicação.
         </p>
 
         <ProductsGrid>
           <ProductCard>
-            <p><span>A CARNE</span></p>
-            <div className="image molded" />
-            <p><span>DAS MELHORES</span></p>
-            <div className="image molded2" />
+            <div className="image">
+              <Image
+                src="/images/paes-burger.jpg"
+                alt="Pães para hambúrguer com miolo macio"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             <div className="content">
-              <h3>HAMBÚRGUERES MOLDADOS</h3>
+              <h3>PÃES PARA BURGER</h3>
               <p>
-                A escolha ideal para quem busca agilidade e padronização. Com peso
-                e formato uniformes, garantem preparo rápido e consistente,
-                preservando textura e sabor artesanal.
+                Estrutura, maciez e sabor para transformar o hambúrguer em uma
+                experiência completa.
               </p>
             </div>
           </ProductCard>
 
           <ProductCard>
-            <div className="image blends" />
+            <div className="image">
+              <Image
+                src="/images/brioche.jpg"
+                alt="Pães brioche dourados, macios e cobertos com gergelim"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             <div className="content">
-              <h3>BLENDS RESFRIADOS</h3>
+              <h3>PÃES ESPECIAIS & FOOD SERVICE</h3>
               <p>
-                Para mestres hamburgueiros que amam controle total. Embalados a
-                vácuo em pacotes de 3kg, preservam frescor, cor e sabor original.
+                Receitas para operações que procuram personalidade, textura e
+                consistência. Desenvolvimento personalizado conforme a necessidade
+                da sua marca.
               </p>
             </div>
           </ProductCard>

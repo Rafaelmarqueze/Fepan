@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const CommitmentSection = styled.section`
   padding: 100px 0;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.light};
 `
 
 export const CommitmentWrapper = styled.div`
@@ -24,7 +24,7 @@ export const CommitmentContent = styled.div`
     max-width: 520px;
 
     span {
-      color: #b30000;
+      color: ${({ theme }) => theme.colors.terracotta};
     }
   }
 
@@ -51,7 +51,16 @@ export const CommitmentCard = styled.div`
 
   padding: 18px 20px;
   border-radius: 12px;
-  background: #f7f7f7;
+  background: #ffffff;
+  border: 1px solid rgba(107, 62, 38, 0.12);
+
+  .value-image {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
 
   h3 {
     font-size: 0.95rem;
@@ -68,33 +77,25 @@ export const CommitmentCard = styled.div`
   }
 `
 
-export const IconCircle = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #b30000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  &:after {
-    content: "✓";
-    font-size: 14px;
-    font-weight: bold;
-    color: #b30000;
-  }
-`
-
 export const CommitmentImage = styled.div`
+  position: relative;
   width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
+  max-width: 460px;
+  justify-self: center;
+  height: 480px;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+
+    @media (max-width: 768px) {
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 320px;
   }
 `

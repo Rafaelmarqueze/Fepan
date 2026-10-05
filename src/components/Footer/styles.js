@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 export const FooterContainer = styled.footer`
-  background-color: #520109;
+  background-color: ${({ theme }) => theme.colors.dark};
+  border-top: 1px solid rgba(243, 213, 154, 0.18);
   color: ${({ theme }) => theme.colors.white};
 
   padding: ${({ theme }) => theme.spacing.xl} 0
@@ -39,8 +40,15 @@ export const FooterContent = styled.div`
   }
 
   .socials a:hover {
-    color: #fb2c36;
+    color: ${({ theme }) => theme.colors.primary};
     transform: translateY(-3px);
+  }
+
+  .socials a {
+    color: ${({ theme }) => theme.colors.wheat};
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
   }
 
   .contacts {
@@ -84,10 +92,9 @@ export const FooterContent = styled.div`
 export const Copyright = styled.div`
   text-align: center;
   padding-top: ${({ theme }) => theme.spacing.md};
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(243, 213, 154, 0.18);
 
   opacity: 0.7;
   font-size: 0.875rem;
 `
-
 

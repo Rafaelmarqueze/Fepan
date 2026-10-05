@@ -1,64 +1,77 @@
 import styled from 'styled-components'
-import logo from '../../../public/images/logo.jpg'
 
 export const HeroSection = styled.section`
-  min-height: 100vh;
+  min-height: min(820px, 100vh);
   display: flex;
   align-items: center;
-  background:
-  linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
-    url('/images/herobg.png');
-    center / cover no-repeat;
+  background-color: #000000;
+  background-image:
+    linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.94) 42%, rgba(0, 0, 0, 0.45) 100%),
+    url('/images/hero.jpg');
+  background-position: center, right center;
+  background-size: cover, auto 100%;
+  background-repeat: no-repeat;
   color: ${({ theme }) => theme.colors.white};
-  padding-top: 80px;
+  padding: 130px 0 90px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    min-height: 760px;
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.82)),
+      url('/images/hero.jpg');
+    background-position: center, 65% center;
+    background-size: cover, auto 100%;
+  }
 `
 export const HeroContent = styled.div`
-  max-width: 820px;
-  margin: 0 auto;
+  max-width: 680px;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 
   p {
-    font-size: 1.2rem;
-    margin: 2rem 0;
+    font-size: 1.1rem;
+    margin: 1.5rem 0 2rem;
     opacity: 0.9;
     line-height: 1.6;
-    max-width: 650px;
+    max-width: 570px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    align-items: center;
+    text-align: center;
+
     p {
-      font-size: 1rem;
+      font-size: 1.02rem;
     }
   }
 `;
 
 export const Title = styled.h1`
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.15;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: clamp(3.4rem, 5.4vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
 
   span {
-    color: #FB2C36;
+    display: block;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 2.4rem;
+    font-size: clamp(2.8rem, 12vw, 4rem);
   }
 `
 export const Subtitle = styled.span`
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
+  letter-spacing: 0.2em;
+  color: ${({ theme }) => theme.colors.wheat};
   margin-bottom: 1.5rem;
-  color: #FB2C36;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
 
 `
 export const CTAButton = styled.a`
@@ -66,19 +79,24 @@ export const CTAButton = styled.a`
   align-items: center;
   justify-content: center;
 
-  background: ${({ theme }) => theme.colors.white};
+  gap: 1rem;
+  background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.dark};
 
   font-weight: 700;
-  padding: 1rem 2.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 999px;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    background: ${({ theme }) => theme.colors.wheat};
+  }
+
+  span {
+    font-size: 1.2rem;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {

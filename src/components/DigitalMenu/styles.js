@@ -2,15 +2,14 @@ import styled from "styled-components"
 
 export const DigitalMenuSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} 0;
-  background: radial-gradient(
-    circle at top,
-    #8b0000 0%,
-    #4a0000 60%,
-    #1a0000 100%
-  );
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(232, 111, 45, 0.2), transparent 58%),
+    ${({ theme }) => theme.colors.dark};
   color: ${({ theme }) => theme.colors.white};
   display: flex;
   justify-content: center;
+  border-top: 1px solid rgba(243, 213, 154, 0.18);
+  border-bottom: 1px solid rgba(243, 213, 154, 0.18);
 `
 
 export const ContentWrapper = styled.div`
@@ -20,19 +19,21 @@ export const ContentWrapper = styled.div`
 
   .subtitle {
     font-size: 1rem;
-    opacity: 0.8;
+    color: ${({ theme }) => theme.colors.wheat};
+    letter-spacing: 0.15em;
     margin-bottom: 1rem;
   }
 
   h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1.1;
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-size: clamp(2.8rem, 6vw, 4.6rem);
+    font-weight: 700;
+    line-height: 1;
     margin: ${({ theme }) => theme.spacing.md} 0;
 
     span {
       display: block;
-      color: #ffc400;
+      color: ${({ theme }) => theme.colors.primary};
       margin-top: 0.25rem;
     }
 
@@ -49,9 +50,9 @@ export const ContentWrapper = styled.div`
   .emphasis {
     display: block;
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.08em;
   }
 `
 
@@ -62,20 +63,25 @@ export const LogosRow = styled.div`
   margin-bottom: 2rem;
 
   img {
-    height: 70px;
+    height: 64px;
     object-fit: contain;
   }
 
   span {
-    font-size: 2rem;
-    opacity: 0.5;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.wheat};
   }
 
-  .darius {
-    margin-left: 20px;
-  }
   .logo {
-    margin-left: 20px; 
+    margin-right: 12px;
+  }
+
+  .brand-placeholder {
+    color: ${({ theme }) => theme.colors.wheat};
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -86,8 +92,13 @@ export const LogosRow = styled.div`
       display: none;
     }
 
-    img {
-      height: 60px;
+    .logo {
+      height: 54px;
+      margin: 0;
+    }
+
+    .brand-placeholder {
+      margin: 0;
     }
   }
 `
@@ -95,7 +106,7 @@ export const LogosRow = styled.div`
 export const Divider = styled.div`
   width: 80px;
   height: 3px;
-  background: rgba(255, 255, 255, 0.3);
+  background: ${({ theme }) => theme.colors.primary};
   margin: 2rem auto;
 `
 
@@ -109,8 +120,8 @@ export const CTAButton = styled.a`
   padding: 20px 60px;
   border-radius: 999px;
 
-  background: #ffc400;
-  color: #2b0000;
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.dark};
 
   font-size: 1.15rem;
   font-weight: 900;
@@ -127,7 +138,7 @@ export const CTAButton = styled.a`
 
   &:hover {
     transform: scale(1.05);
-    background: #ffd84d;
+    background: ${({ theme }) => theme.colors.wheat};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {

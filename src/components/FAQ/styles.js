@@ -15,7 +15,7 @@ export const FAQSection = styled.section`
     }
   }
     span {
-    color: #FB2C36;
+      color: ${({ theme }) => theme.colors.terracotta};
   }
 `
 
@@ -26,18 +26,18 @@ export const FAQList = styled.div`
 
 export const FAQItem = styled.div`
   margin-bottom: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.lightGray};
-  border-radius: 8px;
+  border: 1px solid rgba(107, 62, 38, 0.16);
+  border-radius: 4px;
   overflow: hidden;
 `
 
 export const Question = styled.button`
   width: 100%;
   padding: 1.5rem;
-  background: ${({ theme, isOpen }) => 
-    isOpen ? theme.colors.primary : theme.colors.lightGray};
-  color: ${({ theme, isOpen }) => 
-    isOpen ? theme.colors.white : theme.colors.dark};
+  background: ${({ theme, $isOpen }) =>
+    $isOpen ? theme.colors.dark : theme.colors.light};
+  color: ${({ theme, $isOpen }) =>
+    $isOpen ? theme.colors.wheat : theme.colors.dark};
   font-weight: 600;
   font-size: 1.125rem;
   text-align: left;
@@ -47,9 +47,10 @@ export const Question = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background: ${({ theme, isOpen }) => 
-      isOpen ? theme.colors.primary : theme.colors.secondary};
-    color: ${({ theme }) => theme.colors.white};
+    background: ${({ theme, $isOpen }) =>
+      $isOpen ? theme.colors.dark : theme.colors.wheat};
+    color: ${({ theme, $isOpen }) =>
+      $isOpen ? theme.colors.wheat : theme.colors.dark};
   }
 
   span {
@@ -59,10 +60,10 @@ export const Question = styled.button`
 `
 
 export const Answer = styled.div`
-  max-height: ${({ isOpen }) => isOpen ? '500px' : '0'};
+  max-height: ${({ $isOpen }) => $isOpen ? '500px' : '0'};
   overflow: hidden;
   transition: max-height 0.3s ease;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.light};
 
   p {
     padding: 1.5rem;

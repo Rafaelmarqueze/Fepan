@@ -19,9 +19,11 @@ export const CommitmentSection = styled.section`
   }
 
   h2 {
+    font-family: ${({ theme }) => theme.fonts.heading};
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 1rem;
+    line-height: 1.15;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       font-size: 2rem;
@@ -36,7 +38,12 @@ export const CommitmentSection = styled.section`
   }
 
   span {
-    color: #FB2C36;
+    color: ${({ theme }) => theme.colors.terracotta};
+  }
+
+  p + p {
+    font-size: 1rem;
+    margin: 0;
   }
 `;
 
@@ -80,6 +87,6 @@ export const CommitmentItem = styled.div`
 export const Divider = styled.div`
   width: 80px;
   height: 3px;
-  background: #FB2C36;
+  background: ${({ theme }) => theme.colors.primary};
   margin: 3rem auto 0;
 `;

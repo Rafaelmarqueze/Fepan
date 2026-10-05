@@ -11,21 +11,17 @@ export default function Commitment() {
     <CommitmentSection id="sobre">
       <div className="container">
         <h2>
-          ENTREGA GARANTIDA DE <span>DOMINGO A DOMINGO</span>.
+          UMA BOA RECEITA COMEÇA MUITO ANTES DA <span>PRIMEIRA MORDIDA.</span>
         </h2>
 
         <p>
-          Porque seu cliente não espera <span>e você não pode ficar na mão.</span>
-          Nós da Bruttus entendemos como funciona a operação. Em pleno fim 
-          de semana você vende muito <span>hamburgueria cheia, fila andando</span> e é 
-          exatamente nessa hora que a carne acaba e o fornecedor some. 
-          Por isso entregamos 7 dias por semana, inclusive no domingo, para você 
-          nunca parar sua operação por falta de produto.
-          Seu fim de semana vai ser de lucro. Não de aperto.
+          Pão não é apenas acompanhamento. É textura, aroma, contraste e memória.
+          Por isso, na FE PAN, tratamos a panificação como aquilo que ela realmente é:
+          uma combinação entre técnica, cuidado e experiência.
         </p>
 
         <p>
-          <b>Clique no botão do WhatsApp e fale agora com um consultor!</b>
+          <b>Porque quando a base é excepcional, todo o resto ganha outra dimensão.</b>
         </p>
 
         <Divider />

@@ -5,10 +5,12 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${({ theme }) => theme.colors.reddark};;
+  background-color: rgba(17, 17, 17, 0.96);
+  backdrop-filter: blur(12px);
   color: ${({ theme }) => theme.colors.white};
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(243, 213, 154, 0.16);
 `
 
 export const Nav = styled.nav`
@@ -18,9 +20,14 @@ export const Nav = styled.nav`
 `
 
 export const Logo = styled.a`
-display: flex;
+  display: flex;
   align-items: center;
-  height: 70px; 
+  height: 70px;
+
+  img {
+    width: auto;
+    height: 42px;
+  }
 `
 
 export const NavLinks = styled.ul`
@@ -32,7 +39,7 @@ export const NavLinks = styled.ul`
     top: 70px;
     left: 0;
     right: 0;
-    background: ${({ theme }) => theme.colors.reddark};
+    background: ${({ theme }) => theme.colors.dark};
     flex-direction: column;
     align-items: center;
     padding: 2rem;
@@ -46,19 +53,19 @@ export const NavLinks = styled.ul`
     transition: color 0.3s ease;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.wheat};
     }
     
   }
     li:last-child a {
-    background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.dark};
-    border-radius: 20px;
+  border-radius: 999px;
     padding: 0.5rem 1.5rem;
     
-    /* Remove qualquer efeito de hover */
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.wheat};
+    color: ${({ theme }) => theme.colors.dark};
     }
   }
   
@@ -76,7 +83,7 @@ export const MobileMenuButton = styled.button`
   span {
     width: 30px;
     height: 3px;
-    background: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.wheat};
     transition: all 0.3s ease;
   }
 `
