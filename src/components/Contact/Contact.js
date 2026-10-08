@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import {
@@ -15,7 +15,7 @@ import {
 } from './styles'
 
 export default function Contact({ openModal = false, onCloseModal = () => { } }) {
-  const router = useRouter();
+  const router = useRouter()
   const [fullName, setFullName] = useState('')
   const [burgerPlaceName, setBurgerPlaceName] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
@@ -40,7 +40,7 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
 
   const handleCloseAllModals = () => {
     if (modal.title === 'Sucesso') {
-      router.push('/agradecimento'); // Redireciona se foi sucesso
+      router.push('/agradecimento')
     }
     setModal({ open: false, title: '', text: '' });
     onCloseModal();
@@ -143,7 +143,7 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
               </FormGroup>
 
               <FormGroup>
-                <label>NOME DA HAMBURGUERIA</label>
+                <label>NOME DA EMPRESA</label>
                 <input
                   placeholder="Sua empresa"
                   value={burgerPlaceName}
@@ -197,27 +197,28 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
             {/* COLUNA ESQUERDA */}
             <ContactInfo>
               <h2>
-                PRONTO PARA <span>ELEVAR O PADRÃO</span> DA SUA HAMBURGUERIA?
+                SEU PRODUTO MERECE UM <span>PÃO À ALTURA.</span>
               </h2>
 
               <p>
-                Fale com um de nossos consultores e descubra como a Bruttus pode
-                transformar a qualidade dos seus hambúrgueres e impulsionar suas vendas.
+                Conte para a gente o que você está procurando. Nosso time pode ajudar
+                a encontrar a solução ideal para a sua operação.
               </p>
 
-              <InfoLink href="https://wa.me/5511963249706" target="_blank" rel="noopener noreferrer">
-                <strong>WhatsApp</strong>
-                <span>+55 (11) 96324-9706</span>
+              <InfoLink href="#formulario">
+                <strong>FALE COM A FE PAN</strong>
+                <span>Converse com nosso time comercial</span>
               </InfoLink>
 
-              <InfoLink href="mailto:bruttusfornecedor@gmail.com">
-                <strong>E-mail</strong>
-                <span>bruttusfornecedor@gmail.com</span>
+              <InfoLink href="#formulario">
+                <strong>ATENDIMENTO B2B</strong>
+                <span>Conte um pouco sobre a sua operação</span>
               </InfoLink>
             </ContactInfo>
 
             {/* COLUNA DIREITA */}
             <Form
+              id="formulario"
               onSubmit={(e) => {
                 e.preventDefault()
                 submit()
@@ -234,7 +235,7 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
               </FormGroup>
 
               <FormGroup>
-                <label>NOME DA HAMBURGUERIA</label>
+                <label>NOME DA EMPRESA</label>
                 <input
                   placeholder="Sua empresa"
                   value={burgerPlaceName}

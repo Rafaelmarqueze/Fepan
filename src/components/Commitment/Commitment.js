@@ -7,7 +7,6 @@ import {
   CommitmentCards,
   CommitmentCard,
   CommitmentImage,
-  IconCircle,
 } from "./styles"
 import Image from "next/image"
 
@@ -19,45 +18,59 @@ export default function Commitment() {
 
           <CommitmentContent>
             <h2>
-              COMPROMISSO COM A EXCELÊNCIA, DO{" "}
-              <span>FRIGORÍFICO</span> À SUA CHAPA.
+              TRADIÇÃO NA TÉCNICA. <span>PRECISÃO NO RESULTADO.</span>
             </h2>
 
             <p>
-              Nossa qualidade não é um acaso. Contamos com uma infraestrutura
-              moderna e seguimos os mais rigorosos padrões de segurança alimentar,
-              com certificações que nos permitem atender com excelência em todo o
-              território nacional.
+              A FE PAN une o cuidado artesanal à precisão necessária para produzir
+              com consistência. Cada receita é pensada para entregar sabor, textura,
+              aparência e desempenho — do primeiro ao último lote.
             </p>
 
             <CommitmentCards>
               
               <CommitmentCard>
-                <IconCircle />
+                <Image
+                  className="value-image"
+                  src="/images/sabor.jpg"
+                  width={80}
+                  height={80}
+                  alt="Pão artesanal dourado, destaque para sabor e aroma"
+                />
                 <div>
-                  <h3>SELEÇÃO RIGOROSA</h3>
-                  <p>Apenas as melhores peças de carne entram em nossos blends.</p>
+                  <h3>SABOR E AROMA</h3>
+                  <p>Receitas desenvolvidas para criar equilíbrio em cada mordida.</p>
                 </div>
               </CommitmentCard>
 
               <CommitmentCard>
-                <IconCircle />
+                <Image
+                  className="value-image"
+                  src="/images/textura.jpg"
+                  width={80}
+                  height={80}
+                  alt="Miolo de pão assado mostrando sua estrutura uniforme"
+                />
                 <div>
-                  <h3>TECNOLOGIA DE PONTA</h3>
+                  <h3>TEXTURA</h3>
                   <p>
-                    Equipamentos modernos que garantem a segurança e a qualidade
-                    do produto final.
+                    Maciez por dentro. Personalidade e acabamento por fora.
                   </p>
                 </div>
               </CommitmentCard>
 
               <CommitmentCard>
-                <IconCircle />
+                <Image
+                  className="value-image"
+                  src="/images/padronizacao.jpg"
+                  width={80}
+                  height={80}
+                  alt="Miolo de pão especial com textura artesanal"
+                />
                 <div>
-                  <h3>LOGÍSTICA EFICIENTE</h3>
+                  <h3>PADRONIZAÇÃO</h3>
                   <p>
-                    Entrega rápida e segura, garantindo que o frescor chegue
-                    intacto à sua hamburgueria.
+                    Um produto pensado para entregar qualidade lote após lote.
                   </p>
                 </div>
               </CommitmentCard>
@@ -66,7 +79,12 @@ export default function Commitment() {
           </CommitmentContent>
 
           <CommitmentImage>
-            <Image src="/images/burger.png" width={300} height={300} alt="hamburguer" />
+            <Image
+              src="/images/producao-artesanal.jpg"
+              fill
+              sizes="(max-width: 768px) 100vw, 45vw"
+              alt="Produção artesanal de pães com farinha, massa e pão recém-assado"
+            />
           </CommitmentImage>
 
         </CommitmentWrapper>

@@ -7,24 +7,24 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "Quais produtos a Bruttus oferece?",
-      answer: "Oferecemos hambúrgueres moldados (ideais para agilidade e padronização) e blends resfriados (para quem busca controle total). Todos produzidos com carnes selecionadas e tecnologia de ponta."
+      question: "A FE PAN atende pessoa física?",
+      answer: "Nossa comunicação é voltada principalmente para empresas e operações profissionais de alimentação."
     },
     {
-      question: "Vocês atendem apenas hamburguerias?",
-      answer: "Nosso foco principal são hamburguerias, mas também atendemos restaurantes, lanchonetes e outros estabelecimentos que buscam qualidade em seus burgers."
+      question: "Quais regiões são atendidas?",
+      answer: "A cobertura é confirmada conforme a disponibilidade logística para cada região. Fale com nosso time para consultar sua localidade."
     },
     {
-      question: "Como funciona a entrega?",
-      answer: "Contamos com logística eficiente na capital de São Paulo. A entrega é rápida e segura, garantindo que o frescor chegue intacto à sua hamburgueria."
+      question: "Existe pedido mínimo?",
+      answer: "As condições comerciais variam conforme o produto, a região e o perfil da operação. Entre em contato para consultar."
     },
     {
-      question: "Como faço para me tornar um cliente?",
-      answer: "Basta entrar em contato com um de nossos consultores através do formulário em nossa página ou pelos canais de atendimento. Faremos uma análise do seu negócio e apresentaremos as melhores soluções."
+      question: "É possível desenvolver um pão personalizado?",
+      answer: "Sim. Projetos personalizados podem ser avaliados de acordo com as necessidades da sua operação."
     },
     {
-      question: "Como funciona a parceria com a Darius Delivery?",
-      answer: "Clientes Bruttus têm acesso exclusivo ao cardápio digital 100% gratuito em parceria com a Darius Delivery, incluindo 30 dias grátis da plataforma completa."
+      question: "Como faço para receber uma proposta?",
+      answer: "Preencha o formulário ou fale com nossa equipe. Vamos entender sua necessidade e apresentar as possibilidades."
     }
   ]
 
@@ -38,12 +38,12 @@ export default function FAQ() {
             <FAQItem key={index}>
               <Question 
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                isOpen={openIndex === index}
+                $isOpen={openIndex === index}
               >
                 {faq.question}
-                <span>{openIndex === index ? '−' : '+'}</span>
+                <span aria-hidden="true">{openIndex === index ? '−' : '+'}</span>
               </Question>
-              <Answer isOpen={openIndex === index}>
+              <Answer $isOpen={openIndex === index}>
                 <p>{faq.answer}</p>
               </Answer>
             </FAQItem>

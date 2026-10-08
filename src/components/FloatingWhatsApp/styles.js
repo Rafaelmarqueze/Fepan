@@ -16,11 +16,10 @@ export const FloatingButton = styled.button`
   position: fixed;
   bottom: 1.5rem; /* bottom-6 do Tailwind */
   right: 1.5rem;  /* right-6 do Tailwind */
-  background-color: #16a34a; /* bg-green-600 */
-  color: white;
+  background-color: #25d366;
   border: none;
   border-radius: 9999px; /* rounded-full */
-  padding: 10px; /* p-2.5 */
+  padding: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -28,7 +27,6 @@ export const FloatingButton = styled.button`
   transition: transform 0.2s;
   z-index: 40;
 
-  /* Aplica a animação apenas se a prop $jump for verdadeira */
   ${(props) =>
     props.$jump &&
     css`
@@ -44,11 +42,10 @@ export const FloatingButton = styled.button`
     transform: scale(0.9);
   }
 
-  /* Ajuste para a imagem dentro do botão */
   img {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 
   @media (max-width: 768px) {

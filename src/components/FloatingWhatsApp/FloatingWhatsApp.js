@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from 'next/image';
 import { FloatingButton } from './styles';
+import Image from "next/image";
 
 export default function FloatingWhatsApp({ onClick }) {
   const [jump, setJump] = useState(true);
@@ -17,15 +17,10 @@ export default function FloatingWhatsApp({ onClick }) {
     <FloatingButton 
       onClick={onClick} 
       $jump={jump}
-      aria-label="Fale com o WhatsApp"
-      title="Abrir WhatsApp"
+      aria-label="Fale com a equipe FE PAN"
+      title="Fale com a equipe FE PAN"
     >
-      <Image 
-        src="/images/Whatsapp.png" 
-        alt="WhatsApp"
-        width={40}
-        height={40}
-      />
+      <Image src="/images/Whatsapp.png" alt="" width={32} height={32} />
     </FloatingButton>
   );
 }

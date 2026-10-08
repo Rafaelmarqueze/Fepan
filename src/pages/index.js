@@ -10,6 +10,8 @@ import Footer from '../components/Footer/Footer'
 import HB from '../components/HB/HB'
 import FloatingWhatsApp from '../components/FloatingWhatsApp/FloatingWhatsApp'
 import HomeProducts from '@/components/HomeProducts/HomeProducts';
+import SalesBenefits from '../components/SalesBenefits/SalesBenefits'
+import Head from 'next/head'
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -24,11 +26,19 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>FE PAN | Panificação que transforma cada mordida</title>
+        <meta
+          name="description"
+          content="Pães com qualidade, personalidade e consistência para marcas e operações profissionais de alimentação."
+        />
+      </Head>
       <Header />
       <main>
         <Hero />
         <HB />
         <HomeProducts />
+        <SalesBenefits />
         <Commitment />
         <DigitalMenu />
         <FAQ />

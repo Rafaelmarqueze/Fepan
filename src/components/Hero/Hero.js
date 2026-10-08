@@ -3,17 +3,19 @@ import { HeroSection, HeroContent, Title, Subtitle, CTAButton } from './styles'
 
 export default function Hero() {
   return (
-    <HeroSection>
+    <HeroSection id="inicio">
       <div className="container">
         <HeroContent>
-          <Subtitle>FORNECEDOR DE HAMBÚRGUER</Subtitle>
+          <Subtitle>PANIFICAÇÃO · QUALIDADE · EXPERIÊNCIA</Subtitle>
           <Title>
-            HAMBÚRGUER DE QUALIDADE COM O <span>PREÇO</span> QUE VOCÊ TANTO PROCURA.
+            O PÃO QUE TRANSFORMA <span>CADA MORDIDA.</span>
           </Title>
           <p>
-            Aumente sua margem de lucro sem abrir mão do sabor. <b>Clique no botão verde do WhatsApp e faça sua cotação.</b>
+            Na FE PAN, acreditamos que um grande produto começa por uma grande base.
+            Desenvolvemos pães com qualidade, personalidade e consistência para marcas
+            que entendem que cada detalhe importa.
           </p>
-          <CTAButton href="#contato">QUERO SER PARCEIRO →</CTAButton>
+          <CTAButton href="#produtos">CONHEÇA NOSSOS PRODUTOS <span aria-hidden="true">→</span></CTAButton>
         </HeroContent>
       </div>
     </HeroSection>

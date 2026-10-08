@@ -15,28 +15,28 @@ export default function DigitalMenu() {
         <ContentWrapper>
           
           <LogosRow>
-            <Image className="logo" src="/images/bruttusbg.png" width={150} height={150} alt="Darius Delivery" />
+            <Image className="logo" src="/images/fepan-logo.png" width={150} height={70} alt="FE PAN" />
             <span>×</span>
-            <Image className="darius" src="/images/darius.png" width={150} height={150} alt="Darius Delivery" />
+            <strong className="brand-placeholder">SUA MARCA</strong>
           </LogosRow>
 
-          <p className="subtitle">Clientes Bruttus agora têm</p>
+          <p className="subtitle">DESENVOLVIMENTO PERSONALIZADO</p>
 
           <h1>
-            CARDÁPIO DIGITAL
-            <span>100% GRATUITO</span>
+            SUA MARCA.
+            <span>SUA RECEITA.</span>
           </h1>
 
           <Divider />
 
-          <p className="muted">Enquanto outros vendem só carne...</p>
+          <p className="muted">Uma ideia pode se transformar no seu próximo produto.</p>
 
           <strong className="emphasis">
-            A BRUTTUS ENTREGA ESTRUTURA.
+            FORMATO, TEXTURA E SABOR PENSADOS PARA A SUA OPERAÇÃO.
           </strong>
 
           <CTAButton href="#contato">
-            QUERO MEU CARDÁPIO GRÁTIS
+            FALE COM NOSSO TIME
           </CTAButton>
 
         </ContentWrapper>

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const ProductsSection = styled.section`
-  padding: ${({ theme }) => theme.spacing.xl} 0;
-  background: ${({ theme }) => theme.colors.graydark};
+  padding: clamp(3.5rem, 7vw, ${({ theme }) => theme.spacing.xl}) 0;
+  background: ${({ theme }) => theme.colors.dark};
 
   display: flex;
   justify-content: center;
 
   .container {
-    width: 100%;
-    max-width: 900px; /* 🔥 CENTRALIZA O BLOCO */
+    width: min(calc(100% - clamp(3rem, 8vw, 5rem)), 1180px);
+    max-width: 1180px;
     margin: 0 auto;
 
     display: flex;
@@ -19,18 +19,14 @@ export const ProductsSection = styled.section`
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: white;
-    line-height: 1.2;
+    line-height: 1.1;
 
     span {
-      color: #FB2C36;
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      font-size: 2rem;
+      color: ${({ theme }) => theme.colors.primary};
     }
   }
 
@@ -39,68 +35,108 @@ export const ProductsSection = styled.section`
     max-width: 760px;
     margin: 0 auto;
     line-height: 1.6;
+    text-wrap: pretty;
   }
+
 `;
 
 export const ProductsGrid = styled.div`
   width: 100%;
-  max-width: 1100px;
+  max-width: 1180px;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 3rem;
-  margin: 4rem auto 0;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: clamp(2rem, 5vw, 3rem) auto 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 `;
 
 export const ProductCard = styled.div`
-  background: #1c1c1c;
-  border-radius: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: clamp(1rem, 3vw, 2rem);
+  background: #191817;
+  border: 1px solid rgba(243, 213, 154, 0.16);
+  border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px);
   }
 
   .image {
-    height: 460px;
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+    margin: 12px 0 12px 12px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: ${({ theme }) => theme.colors.dark};
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 56%;
+      transition: transform 0.5s ease;
+    }
   }
 
-.image.molded {
-  background-image: url("/images/imagemolded.png");
-}
-
-.image.molded2 {
-  background-image: url("/images/imagemolded2.jpeg");
-}
-
-.image.blends {
-  background-image: url("/images/imageblends.png");
-}
-
+  &:hover .image img {
+    transform: scale(1.04);
+  }
 
   .content {
-    padding: 2rem;
-    text-align: center;
+    align-self: center;
+    min-width: 0;
+    padding: 1.5rem clamp(1rem, 3vw, 2rem) 1.5rem 0;
+    text-align: left;
   }
 
   h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: white;
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    margin: 0 0 0.5rem;
+    color: ${({ theme }) => theme.colors.wheat};
     letter-spacing: 0.5px;
+  }
+
+  h4 {
+    margin: 0 0 0.5rem;
+    color: white;
+    font-size: 1.05rem;
   }
 
   p {
     color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
     font-size: 0.95rem;
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  .details {
+    margin-top: 0.75rem;
+
+    strong {
+      color: ${({ theme }) => theme.colors.wheat};
+      text-transform: uppercase;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: block;
+
+    .image {
+      width: auto;
+      aspect-ratio: 16 / 10;
+      margin: 10px 10px 0;
+    }
+
+    .content {
+      padding: 1rem 1.1rem 1.25rem;
+    }
   }
 `;

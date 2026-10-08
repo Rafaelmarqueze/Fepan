@@ -3,17 +3,18 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #fffaf0;
+  border: 1px solid #eadcc5;
+  border-radius: 14px;
+  padding: clamp(16px, 2.5vw, 28px);
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.08);
 `;
 
 const SectionTitle = styled.h2`
   margin: 0 0 20px 0;
-  color: #333;
+  color: #2c1810;
   font-size: 22px;
-  border-bottom: 2px solid #ff6b35;
+  border-bottom: 2px solid #e86f2d;
   padding-bottom: 10px;
 `;
 
@@ -23,21 +24,21 @@ const Table = styled.table`
   margin-bottom: 30px;
 
   th {
-    background: #f5f5f5;
+    background: #f3d59a;
     padding: 12px;
     text-align: left;
     font-weight: bold;
-    border-bottom: 2px solid #ddd;
-    color: #333;
+    border-bottom: 2px solid #d9c7aa;
+    color: #2c1810;
   }
 
   td {
     padding: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee3d2;
   }
 
   tr:hover {
-    background: #f9f9f9;
+    background: #fff5e2;
   }
 `;
 

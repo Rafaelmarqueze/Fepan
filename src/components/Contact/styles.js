@@ -2,11 +2,9 @@ import styled from 'styled-components'
 
 export const ContactSection = styled.section`
   padding: 6rem 0;
-  background: radial-gradient(
-    circle at center,
-    #1c1c1c 0%,
-    #0f0f0f 70%
-  );
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(232, 111, 45, 0.14), transparent 34%),
+    ${({ theme }) => theme.colors.dark};
   color: white;
 `
 
@@ -17,7 +15,7 @@ export const ContactGrid = styled.div`
   align-items: center;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 `
 
@@ -30,7 +28,7 @@ export const ContactInfo = styled.div`
     margin-bottom: 1.5rem;
 
     span {
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.primary};
     }
 
     @media (max-width: 768px) {
@@ -83,7 +81,7 @@ export const InfoLink = styled.a`
 
   &:hover {
     opacity: 0.8;
-    color: #fb2c36;
+    color: ${({ theme }) => theme.colors.primary};
 
     strong {
       opacity: 1;
@@ -93,7 +91,8 @@ export const InfoLink = styled.a`
 
 /* FORMULÁRIO */
 export const Form = styled.form`
-  background: #161616;
+  background: #191817;
+  border: 1px solid rgba(243, 213, 154, 0.18);
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 0 40px rgba(0,0,0,0.4);
@@ -113,8 +112,8 @@ export const Form = styled.form`
     margin-top: 1.5rem;
     padding: 1rem;
     border-radius: 12px;
-    background: white;
-    color: black;
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.dark};
     font-weight: 800;
     border: none;
     cursor: pointer;
@@ -155,7 +154,7 @@ export const FormGroup = styled.div`
 
     &:focus {
       outline: none;
-      border-color: #fb2c36;
+      border-color: ${({ theme }) => theme.colors.primary};
     }
   }
 
@@ -184,7 +183,7 @@ export const ModalContent = styled.div`
     
   width: 100%;
   max-width: 520px;
-  background: #161616;
+  background: #191817;
   border: 1px solid #2a2a2a;
   border-radius: 16px;
   padding: 1.5rem;

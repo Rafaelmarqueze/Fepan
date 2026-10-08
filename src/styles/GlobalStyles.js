@@ -42,12 +42,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
+    width: calc(100% - clamp(3rem, 8vw, 5rem));
     max-width: 1280px;
     margin: 0 auto;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      padding: 0 1.5rem;
-    }
   }
 
   /* Container principal que ocupa a tela toda */
@@ -58,7 +55,7 @@ const GlobalStyles = createGlobalStyle`
   justify-content: center;
   min-height: 100vh;
   width: 100%;
-  background-color: #520109; /* Sua cor personalizada */
+  background-color: #111111;
   color: white;
   text-align: center;
   padding: 20px;
@@ -104,8 +101,8 @@ const GlobalStyles = createGlobalStyle`
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background-color: #25D366; /* Verde WhatsApp */
-  color: white;
+  background-color: #E86F2D;
+  color: #111111;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
@@ -119,7 +116,7 @@ const GlobalStyles = createGlobalStyle`
 
 .btn-whatsapp:hover {
   transform: scale(1.02);
-  background-color: #20ba5a;
+  background-color: #F3D59A;
 }
 
 /* Rodapé */
