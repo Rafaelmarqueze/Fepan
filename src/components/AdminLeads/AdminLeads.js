@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -245,14 +245,20 @@ export default function AdminLeads() {
   const [newLead, setNewLead] = useState({ name: "", email: "", phone: "", cnpj: "" });
   const statuses = ["novo", "contatado", "convertido", "perdido"];
 
-  useEffect(() => {
-    fetchLeads();
-  }, []);
+  const getAdminHeaders = (headers = {}) => ({
+    ...headers,
+    Authorization: `Bearer ${localStorage.getItem("adminToken") || ""}`,
+  });
 
-  const fetchLeads = async () => {
+  const fetchLeads = useCallback(async () => {
     try {
-      const response = await fetch("/api/leads");
+      const response = await fetch("/api/leads", {
+        headers: getAdminHeaders(),
+      });
       const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Falha ao carregar leads");
+      }
       if (Array.isArray(data)) {
         setLeads(data);
       } else {
@@ -265,7 +271,11 @@ export default function AdminLeads() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchLeads();
+  }, [fetchLeads]);
 
   const handleGeneratePurchaseLink = (lead) => {
     setSelectedLead(lead);
@@ -315,7 +325,7 @@ export default function AdminLeads() {
           try {
             await fetch(`/api/leads?id=${selectedLead.id}`, {
               method: "PUT",
-              headers: { "Content-Type": "application/json" },
+              headers: getAdminHeaders({ "Content-Type": "application/json" }),
               body: JSON.stringify({ cnpj: cleanCNPJ }),
             });
           } catch (err) {
@@ -348,9 +358,9 @@ export default function AdminLeads() {
       const cleanCNPJ = newLead.cnpj ? newLead.cnpj.replace(/[^\d]/g, "") : "";
       const response = await fetch("/api/leads", {
         method: "POST",
-        headers: {
+        headers: getAdminHeaders({
           "Content-Type": "application/json",
-        },
+        }),
         body: JSON.stringify({ ...newLead, status: "novo", cnpj: cleanCNPJ }),
       });
 
@@ -377,7 +387,7 @@ export default function AdminLeads() {
     try {
       const response = await fetch(`/api/leads?id=${id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: getAdminHeaders({ "Content-Type": "application/json" }),
         body: JSON.stringify({ status: newStatus }),
       });
       if (response.ok) {

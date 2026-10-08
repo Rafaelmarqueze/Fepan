@@ -14,53 +14,63 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy the app is to use the [Vercel Platform](https://vercel.com/new).
+See the [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Leads e acesso administrativo
 
-## Configurar contatos no Google Sheets
+O formulário salva cada lead no PostgreSQL e envia uma notificação pelo Resend.
+Configure estas variáveis no `.env.local` e no ambiente de produção:
 
-O formulário de contato envia os dados para um Google Apps Script. O script
-registra cada contato na primeira aba da planilha (a aba aberta pelo link com
-`gid=0`) e envia o e-mail de notificação para o endereço configurado. Os leads
-enviados pelo formulário não são gravados no banco de dados do site.
+- `DATABASE_URL`: URL de conexão do PostgreSQL.
+- `JWT_SECRET`: segredo forte usado para assinar as sessões administrativas.
+- `RESEND_API_KEY`: chave da API do Resend.
+- `CONTACT_TO`: endereço que receberá as notificações (opcional; o padrão é
+  `bruttusfornecedor@gmail.com`).
+- `CONTACT_FROM`: remetente verificado no Resend (opcional; o padrão é
+  `Bruttus <onboarding@resend.dev>`).
 
-1. Crie uma planilha Google e copie o ID da URL (o trecho entre `/d/` e `/edit`).
-2. Em [script.google.com](https://script.google.com), crie um projeto e cole o
-   conteúdo de `google-apps-script/Code.gs` no arquivo `Code.gs`.
-3. Em **Configurações do projeto > Propriedades do script**, adicione:
-   - `SPREADSHEET_ID`: ID da planilha criada.
-   - `LEAD_NOTIFICATION_EMAIL`: endereço que receberá os contatos.
-   - `WEBHOOK_SECRET`: uma chave secreta forte e aleatória.
-4. Em **Implantar > Nova implantação**, selecione **App da Web**, execute como
-   sua conta e permita acesso para qualquer pessoa. Autorize as permissões
-   solicitadas pelo Google e copie a URL do app da Web.
-5. Configure no ambiente do Next.js (local e produção) as variáveis:
-   - `GOOGLE_SHEETS_WEBHOOK_URL`: URL do app da Web.
-   - `GOOGLE_SHEETS_WEBHOOK_SECRET`: o mesmo valor de `WEBHOOK_SECRET`.
-6. Reinicie/reimplante o site após configurar as variáveis. O Apps Script usa
-   a primeira aba existente e cria nela a linha de cabeçalho no primeiro envio.
+Para criar o primeiro usuário administrador, defina temporariamente
+`ADMIN_USERNAME` e `ADMIN_PASSWORD` (mínimo de 12 caracteres) no ambiente do
+terminal e execute `npm run db:create-admin`. O comando lê também o
+`.env.local` para obter `DATABASE_URL`, grava somente o hash da senha e falha
+se o nome de usuário já existir. Depois, remova as variáveis temporárias de
+credenciais.
 
-Mantenha a chave secreta apenas nas propriedades do Apps Script e nas variáveis
-de ambiente do servidor; não use prefixo `NEXT_PUBLIC_`.
+No PowerShell, por exemplo:
+
+```powershell
+$securePassword = Read-Host "Senha do admin" -AsSecureString
+$passwordPointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePassword)
+try {
+  $env:ADMIN_USERNAME = Read-Host "Usuário admin"
+  $env:ADMIN_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($passwordPointer)
+  npm run db:create-admin
+} finally {
+  Remove-Item Env:ADMIN_USERNAME, Env:ADMIN_PASSWORD -ErrorAction SilentlyContinue
+  [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($passwordPointer)
+}
+```
+
+Antes de cadastrar leads, aplique as mudanças do schema ao banco:
+
+```bash
+npm run db:push
+```
+
+O login e a área de leads ficam em `/admin`. Mantenha `JWT_SECRET`,
+`RESEND_API_KEY` e `DATABASE_URL` apenas no ambiente do servidor; não use o
+prefixo `NEXT_PUBLIC_`.
