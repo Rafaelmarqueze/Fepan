@@ -12,7 +12,7 @@ export const users = pgTable("user", {
 export const leads = pgTable("leads", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  email: text("email").notNull(),
+  email: text("email"),
   phone: text("phone"),
   company: text("company"),
   message: text("message"),

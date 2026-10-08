@@ -39,7 +39,7 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
   };
 
   const handleCloseAllModals = () => {
-    if (modal.title === 'Sucesso') {
+    if (modal.title === 'Sucesso' || modal.title === 'Contato registrado') {
       router.push('/agradecimento')
     }
     setModal({ open: false, title: '', text: '' });
@@ -60,11 +60,13 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
           burgerPlaceName,
           whatsapp: whatsapp.replace(/\D/g, ''),
           email,
-          message
+          message,
+          cnpj
         })
       })
 
-      if (!res.ok) {
+      const result = await res.json()
+      if (!res.ok && !result.leadId) {
         throw new Error('Failed')
       }
 
@@ -76,8 +78,10 @@ export default function Contact({ openModal = false, onCloseModal = () => { } })
       setMessage('')
       setModal({
         open: true,
-        title: 'Sucesso',
-        text: 'Contato enviado com sucesso! Em breve um consultor entrará em contato.'
+        title: res.ok ? 'Sucesso' : 'Contato registrado',
+        text: res.ok
+          ? 'Contato enviado com sucesso! Em breve um consultor entrará em contato.'
+          : 'Seu contato foi registrado, mas a notificação por e-mail falhou. Não é necessário enviar novamente.'
       })
     } catch (err) {
       setModal({

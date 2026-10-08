@@ -9,6 +9,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Método não permitido' });
   }
 
+  if (!process.env.JWT_SECRET) {
+    console.error('JWT_SECRET não está configurado');
+    return res.status(500).json({ message: 'Erro interno no servidor' });
+  }
+
   const { username, password } = req.body;
 
   try {

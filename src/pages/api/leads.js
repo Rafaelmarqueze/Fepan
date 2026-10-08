@@ -1,8 +1,13 @@
 import { db } from "@/db";
 import { leads as leadsTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import { requireAdmin } from "@/lib/adminAuth";
 
 export default async function handler(req, res) {
+  if (!requireAdmin(req, res)) {
+    return;
+  }
+
   try {
     if (req.method === "GET") {
       const allLeads = await db.select().from(leadsTable).orderBy(leadsTable.createdAt);
