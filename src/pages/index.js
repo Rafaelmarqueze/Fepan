@@ -10,6 +10,7 @@ import Footer from '../components/Footer/Footer'
 import HB from '../components/HB/HB'
 import FloatingWhatsApp from '../components/FloatingWhatsApp/FloatingWhatsApp'
 import HomeProducts from '@/components/HomeProducts/HomeProducts';
+import SalesBenefits from '../components/SalesBenefits/SalesBenefits'
 import Head from 'next/head'
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
         <Hero />
         <HB />
         <HomeProducts />
+        <SalesBenefits />
         <Commitment />
         <DigitalMenu />
         <FAQ />

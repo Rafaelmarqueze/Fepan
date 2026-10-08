@@ -16,9 +16,7 @@ export const FloatingButton = styled.button`
   position: fixed;
   bottom: 1.5rem; /* bottom-6 do Tailwind */
   right: 1.5rem;  /* right-6 do Tailwind */
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.dark};
-  color: white;
+  background-color: #25d366;
   border: none;
   border-radius: 9999px; /* rounded-full */
   padding: 14px;
@@ -44,10 +42,10 @@ export const FloatingButton = styled.button`
     transform: scale(0.9);
   }
 
-  svg {
+  img {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
 
   @media (max-width: 768px) {

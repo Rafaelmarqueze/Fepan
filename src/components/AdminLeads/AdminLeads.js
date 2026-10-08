@@ -3,17 +3,18 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #fffaf0;
+  border: 1px solid #eadcc5;
+  border-radius: 14px;
+  padding: clamp(16px, 2.5vw, 28px);
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.08);
 `;
 
 const SectionTitle = styled.h2`
   margin: 0 0 20px 0;
-  color: #333;
+  color: #2c1810;
   font-size: 22px;
-  border-bottom: 2px solid #ff6b35;
+  border-bottom: 2px solid #e86f2d;
   padding-bottom: 10px;
 `;
 
@@ -23,21 +24,21 @@ const LeadsTable = styled.table`
   margin-bottom: 30px;
 
   th {
-    background: #f5f5f5;
+    background: #f3d59a;
     padding: 12px;
     text-align: left;
     font-weight: bold;
-    border-bottom: 2px solid #ddd;
-    color: #333;
+    border-bottom: 2px solid #d9c7aa;
+    color: #2c1810;
   }
 
   td {
     padding: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee3d2;
   }
 
   tr:hover {
-    background: #f9f9f9;
+    background: #fff5e2;
   }
 `;
 
@@ -49,8 +50,8 @@ const ActionButtons = styled.div`
 
 const Button = styled.button`
   padding: 8px 16px;
-  background: ${(props) => props.color || "#ff6b35"};
-  color: white;
+  background: ${(props) => props.color || "#e86f2d"};
+  color: #111111;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -81,7 +82,7 @@ const Modal = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background: white;
+  background: #fffaf0;
   padding: 30px;
   border-radius: 8px;
   max-width: 500px;
@@ -91,7 +92,7 @@ const ModalContent = styled.div`
 const ModalTitle = styled.h3`
   margin: 0 0 20px 0;
   font-size: 20px;
-  color: #333;
+  color: #2c1810;
 `;
 
 const FormGroup = styled.div`
@@ -102,19 +103,19 @@ const FormGroup = styled.div`
 
 const Label = styled.label`
   margin-bottom: 5px;
-  color: #333;
+  color: #2c1810;
   font-weight: bold;
 `;
 
 const Input = styled.input`
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #e4d6c0;
   border-radius: 4px;
   font-size: 16px;
 
   &:focus {
     outline: none;
-    border-color: #ff6b35;
+    border-color: #e86f2d;
   }
 `;
 
@@ -156,9 +157,9 @@ const EmptyState = styled.div`
 `;
 
 const CreateLeadContainer = styled.div`
-  background: #f9f9f9;
-  border: 2px dashed #ff6b35;
-  border-radius: 8px;
+  background: #fff5e2;
+  border: 1px dashed #e86f2d;
+  border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
 `;
@@ -178,27 +179,27 @@ const CreateLeadLabel = styled.label`
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  color: #333;
+  color: #2c1810;
   font-weight: bold;
 
   input {
     margin-top: 4px;
     padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #e4d6c0;
+    border-radius: 6px;
     font-size: 14px;
 
     &:focus {
       outline: none;
-      border-color: #ff6b35;
+      border-color: #e86f2d;
     }
   }
 `;
 
 const CreateLeadButton = styled.button`
   padding: 8px 16px;
-  background: #ff6b35;
-  color: white;
+  background: #e86f2d;
+  color: #111111;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -207,7 +208,7 @@ const CreateLeadButton = styled.button`
   height: 36px;
 
   &:hover {
-    background: #e55a1f;
+    background: #f3d59a;
   }
 `;
 
@@ -220,8 +221,8 @@ const HeaderContainer = styled.div`
 
 const CreateNewLeadBtn = styled.button`
   padding: 10px 20px;
-  background: #28a745;
-  color: white;
+  background: #6b3e26;
+  color: #fff7e8;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -229,7 +230,7 @@ const CreateNewLeadBtn = styled.button`
   font-size: 14px;
 
   &:hover {
-    background: #218838;
+    background: #2c1810;
   }
 `;
 
@@ -482,7 +483,7 @@ export default function AdminLeads() {
                         padding: '4px 8px',
                         borderRadius: '4px',
                         border: '1px solid #ccc',
-                        background: '#fff',
+                        background: '#fffaf0',
                         fontSize: '14px'
                       }}
                     >

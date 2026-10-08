@@ -29,7 +29,7 @@ export const HeroSection = styled.section`
     background-size: cover, auto 100%;
 
     .container {
-      padding: 0 1.25rem;
+      padding: 0 1.5rem;
     }
   }
 `
@@ -72,7 +72,7 @@ export const Title = styled.h1`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: clamp(2.8rem, 12vw, 4rem);
+    font-size: clamp(2.15rem, 10vw, 3.5rem);
   }
 `
 export const Subtitle = styled.span`

@@ -18,10 +18,11 @@ import {
 } from "recharts";
 
 const Container = styled.div`
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #fffaf0;
+  border: 1px solid #eadcc5;
+  border-radius: 14px;
+  padding: clamp(16px, 2.5vw, 28px);
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.08);
 `;
 
 const Header = styled.div`
@@ -45,9 +46,9 @@ const Controls = styled.div`
 
 const FilterButton = styled.button`
   padding:8px 12px;
-  background: ${(p) => (p.active ? '#ff6b35' : 'transparent')};
-  color: ${(p) => (p.active ? 'white' : '#333')};
-  border: 1px solid #eee;
+  background: ${(p) => (p.active ? '#e86f2d' : 'transparent')};
+  color: ${(p) => (p.active ? '#111111' : '#2c1810')};
+  border: 1px solid #eadcc5;
   border-radius: 6px;
   cursor: pointer;
   font-weight:600;
@@ -58,13 +59,13 @@ const InputMonth = styled.input`
   padding:8px 10px;
   border-radius:6px;
   border:1px solid #eaeaea;
-  background: #fff;
+  background: #fffdf8;
 `;
 
 const ActionButton = styled.button`
   padding:8px 12px;
-  background:#6b4f3f;
-  color:white;
+  background:#6b3e26;
+  color:#fff7e8;
   border:none;
   border-radius:6px;
   cursor:pointer;
@@ -81,7 +82,7 @@ const KPIGrid = styled.div`
 const KPICard = styled.div`
   padding:14px;
   border-radius:8px;
-  background: linear-gradient(180deg,#fff,#f9f7f2);
+  background: linear-gradient(180deg,#fffaf0,#f8f0e2);
   text-align:left;
   box-shadow: 0 6px 18px rgba(43,31,24,0.06);
 `;
@@ -103,7 +104,7 @@ const ChartsSection = styled.div`
 const ChartCard = styled.div`
   padding:12px;
   border-radius:8px;
-  background: #fff;
+  background: #fffdf8;
   box-shadow: 0 6px 18px rgba(43,31,24,0.04);
 `;
 
@@ -216,8 +217,8 @@ export default function AdminReports() {
                   <LineChart data={mergedWithCum} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                     <defs>
                       <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#ff6b35" stopOpacity={0.3} />
-                        <stop offset="100%" stopColor="#ff6b35" stopOpacity={0} />
+                        <stop offset="0%" stopColor="#e86f2d" stopOpacity={0.3} />
+                        <stop offset="100%" stopColor="#e86f2d" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -225,7 +226,7 @@ export default function AdminReports() {
                     <YAxis tickFormatter={(v)=>`R$${Number(v).toFixed(0)}`} />
                     <Tooltip formatter={(v)=>formatCurrency(v)} />
                     <Legend />
-                    <Line type="monotone" dataKey="this" name="Faturamento Diário" stroke="#ff6b35" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="this" name="Faturamento Diário" stroke="#e86f2d" strokeWidth={2} dot={false} />
                     <Line type="monotone" dataKey="cumulative" name="Faturamento Acumulado" stroke="#6b4f3f" strokeWidth={2} dot={false} />
                   </LineChart>
                 </ResponsiveContainer>
@@ -241,7 +242,7 @@ export default function AdminReports() {
                     <XAxis dataKey="date" tickFormatter={(d)=>d.slice(8,10)} />
                     <YAxis tickFormatter={(v)=>`R$${Number(v).toFixed(0)}`} />
                     <Tooltip formatter={(v)=>formatCurrency(v)} />
-                    <Bar dataKey="this" name="Faturamento Diário" fill="#ff6b35" />
+                    <Bar dataKey="this" name="Faturamento Diário" fill="#e86f2d" />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

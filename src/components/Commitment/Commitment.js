@@ -46,7 +46,7 @@ export default function Commitment() {
               <CommitmentCard>
                 <Image
                   className="value-image"
-                  src="/images/padronizacao.jpg"
+                  src="/images/textura.jpg"
                   width={80}
                   height={80}
                   alt="Miolo de pão assado mostrando sua estrutura uniforme"
@@ -62,7 +62,7 @@ export default function Commitment() {
               <CommitmentCard>
                 <Image
                   className="value-image"
-                  src="/images/paes-especiais.jpg"
+                  src="/images/padronizacao.jpg"
                   width={80}
                   height={80}
                   alt="Miolo de pão especial com textura artesanal"

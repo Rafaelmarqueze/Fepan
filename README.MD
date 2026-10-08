@@ -38,3 +38,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
+## Configurar contatos no Google Sheets
+
+O formulário de contato envia os dados para um Google Apps Script. O script
+registra cada contato na primeira aba da planilha (a aba aberta pelo link com
+`gid=0`) e envia o e-mail de notificação para o endereço configurado. Os leads
+enviados pelo formulário não são gravados no banco de dados do site.
+
+1. Crie uma planilha Google e copie o ID da URL (o trecho entre `/d/` e `/edit`).
+2. Em [script.google.com](https://script.google.com), crie um projeto e cole o
+   conteúdo de `google-apps-script/Code.gs` no arquivo `Code.gs`.
+3. Em **Configurações do projeto > Propriedades do script**, adicione:
+   - `SPREADSHEET_ID`: ID da planilha criada.
+   - `LEAD_NOTIFICATION_EMAIL`: endereço que receberá os contatos.
+   - `WEBHOOK_SECRET`: uma chave secreta forte e aleatória.
+4. Em **Implantar > Nova implantação**, selecione **App da Web**, execute como
+   sua conta e permita acesso para qualquer pessoa. Autorize as permissões
+   solicitadas pelo Google e copie a URL do app da Web.
+5. Configure no ambiente do Next.js (local e produção) as variáveis:
+   - `GOOGLE_SHEETS_WEBHOOK_URL`: URL do app da Web.
+   - `GOOGLE_SHEETS_WEBHOOK_SECRET`: o mesmo valor de `WEBHOOK_SECRET`.
+6. Reinicie/reimplante o site após configurar as variáveis. O Apps Script usa
+   a primeira aba existente e cria nela a linha de cabeçalho no primeiro envio.
+
+Mantenha a chave secreta apenas nas propriedades do Apps Script e nas variáveis
+de ambiente do servidor; não use prefixo `NEXT_PUBLIC_`.

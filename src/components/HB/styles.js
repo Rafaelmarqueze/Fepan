@@ -8,7 +8,7 @@ export const CommitmentSection = styled.section`
   justify-content: center;
 
   .container {
-    width: 100%;
+    width: min(calc(100% - clamp(3rem, 8vw, 5rem)), 900px);
     max-width: 900px; /* 🔥 largura correta no desktop */
     margin: 0 auto;
 

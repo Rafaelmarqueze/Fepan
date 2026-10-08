@@ -42,12 +42,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
+    width: calc(100% - clamp(3rem, 8vw, 5rem));
     max-width: 1280px;
     margin: 0 auto;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      padding: 0 1.25rem;
-    }
   }
 
   /* Container principal que ocupa a tela toda */

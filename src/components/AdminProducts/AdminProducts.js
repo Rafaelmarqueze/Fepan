@@ -3,17 +3,18 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #fffaf0;
+  border: 1px solid #eadcc5;
+  border-radius: 14px;
+  padding: clamp(16px, 2.5vw, 28px);
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.08);
 `;
 
 const SectionTitle = styled.h2`
   margin: 0 0 20px 0;
-  color: #333;
+  color: #2c1810;
   font-size: 22px;
-  border-bottom: 2px solid #ff6b35;
+  border-bottom: 2px solid #e86f2d;
   padding-bottom: 10px;
 `;
 
@@ -23,21 +24,21 @@ const Table = styled.table`
   margin-bottom: 30px;
 
   th {
-    background: #f5f5f5;
+    background: #f3d59a;
     padding: 12px;
     text-align: left;
     font-weight: bold;
-    border-bottom: 2px solid #ddd;
-    color: #333;
+    border-bottom: 2px solid #d9c7aa;
+    color: #2c1810;
   }
 
   td {
     padding: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee3d2;
   }
 
   tr:hover {
-    background: #f9f9f9;
+    background: #fff5e2;
   }
 `;
 
@@ -60,35 +61,35 @@ const Label = styled.label`
 
 const Input = styled.input`
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #e4d6c0;
   border-radius: 4px;
 `;
 
 const Textarea = styled.textarea`
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #e4d6c0;
   border-radius: 4px;
   resize: vertical;
 `;
 
 const Button = styled.button`
   padding: 10px 20px;
-  background: #ff6b35;
-  color: white;
+  background: #e86f2d;
+  color: #111111;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   font-size: 14px;
   &:hover {
-    background: #e55a1f;
+    background: #f3d59a;
   }
 `;
 
 const SmallButton = styled.button`
   padding: 6px 10px;
   background: #6b4f3f;
-  color: white;
+  color: #fff7e8;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -96,13 +97,13 @@ const SmallButton = styled.button`
   font-size: 12px;
   margin-right: 8px;
   &:hover {
-    background: #584235;
+    background: #2c1810;
   }
 `;
 
 const ImagePreviewContainer = styled.div`
   margin-top: 10px;
-  border: 2px solid #ddd;
+  border: 2px solid #e4d6c0;
   border-radius: 4px;
   padding: 10px;
   text-align: center;
@@ -116,7 +117,7 @@ const ImagePreview = styled.img`
 
 const FileInput = styled.input`
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #e4d6c0;
   border-radius: 4px;
 `;
 
@@ -134,7 +135,7 @@ const Modal = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background: white;
+  background: #fffaf0;
   padding: 30px;
   border-radius: 8px;
   max-width: 400px;
@@ -144,7 +145,7 @@ const ModalContent = styled.div`
 
 const ModalTitle = styled.h3`
   margin: 0 0 15px 0;
-  color: #333;
+  color: #2c1810;
   font-size: 20px;
 `;
 
@@ -167,26 +168,26 @@ const ModalButton = styled.button`
   cursor: pointer;
   font-weight: bold;
   font-size: 14px;
-  background: ${(props) => (props.danger ? "#dc3545" : "#ff6b35")};
-  color: white;
+  background: ${(props) => (props.danger ? "#dc3545" : "#e86f2d")};
+  color: ${(props) => (props.danger ? "#ffffff" : "#111111")};
 
   &:hover {
-    background: ${(props) => (props.danger ? "#c82333" : "#e55a1f")};
+    background: ${(props) => (props.danger ? "#c82333" : "#f3d59a")};
   }
 `;
 
 const ModalButtonSecondary = styled.button`
   padding: 8px 16px;
-  border: 1px solid #ddd;
+  border: 1px solid #e4d6c0;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   font-size: 14px;
-  background: white;
-  color: #333;
+  background: #fffaf0;
+  color: #2c1810;
 
   &:hover {
-    background: #f0f0f0;
+    background: #fff5e2;
   }
 `;
 

@@ -10,7 +10,6 @@ export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [activeTab, setActiveTab] = useState("reports");
   const [loading, setLoading] = useState(false);
 
@@ -83,14 +82,14 @@ export default function Admin() {
             <p>{feedbackModal.message}</p>
             <div className="actions" style={{ marginTop: '20px' }}>
               
-              <button 
-                onClick={closeFeedback} 
-                style={{ 
-                  padding: '10px 25px', 
-                  backgroundColor: '#ff6b35', 
-                  color: 'white', 
+              <button
+                onClick={closeFeedback}
+                style={{
+                  padding: '10px 25px',
+                  backgroundColor: '#e86f2d',
+                  color: '#111111',
                   border: 'none', 
-                  borderRadius: '4px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
                   fontWeight: 'bold'
                 }}
@@ -116,7 +115,7 @@ export default function Admin() {
               required
             />
             <LoginInput
-              type={showPassword ? "text" : "password"}
+              type="password"
               placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -165,128 +164,151 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background: white;
+  background: #fffaf0;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 16px;
   max-width: 400px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.28);
   h3 { margin: 0 0 15px 0; font-size: 22px; }
-  p { color: #666; margin: 0; line-height: 1.5; }
+  p { color: #6b625a; margin: 0; line-height: 1.5; }
 `;
 
 const AdminContainer = styled.div`
   min-height: 100vh;
-  background: #f5f5f5;
-  padding: 20px;
+  background: #111111;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const AdminHeader = styled.div`
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: min(100%, 440px);
+  margin: 0 auto 24px;
+  text-align: center;
 `;
 
 const AdminTitle = styled.h1`
   margin: 0;
-  color: #333;
-  font-size: 28px;
+  color: #fff7e8;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
 `;
 
 const LoginForm = styled.form`
-  background: white;
-  padding: 40px;
-  border-radius: 8px;
-  max-width: 400px;
+  background: #fff7e8;
+  padding: 36px;
+  border-radius: 16px;
+  width: min(100%, 440px);
   margin: 0 auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 `;
 
 const LoginInput = styled.input`
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 14px 16px;
+  border: 1px solid #e4d6c0;
+  border-radius: 8px;
   font-size: 16px;
-  &:focus { outline: none; border-color: #ff6b35; }
-`;
-
-const TogglePasswordBtn = styled.button`
-  padding: 10px 15px;
-  background: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  &:hover { background: #e0e0e0; }
+  background: #fffdf8;
+  color: #2c1810;
+  &:focus { outline: 2px solid #e86f2d; border-color: #e86f2d; }
 `;
 
 const LoginButton = styled.button`
-  padding: 12px;
-  background: #ff6b35;
-  color: white;
+  padding: 14px;
+  background: #e86f2d;
+  color: #111111;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  &:disabled { background: #ccc; cursor: not-allowed; }
-  &:hover:not(:disabled) { background: #e55a1f; }
+  &:disabled { background: #c7b8a3; cursor: not-allowed; }
+  &:hover:not(:disabled) { background: #f3d59a; }
 `;
 
 const AdminWrapper = styled.div`
   display: flex;
   min-height: 100vh;
+  background: #fff7e8;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Sidebar = styled.div`
-  width: 220px;
-  background: #520109;
+  width: 250px;
+  flex: 0 0 250px;
+  background: #111111;
   color: white;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  gap: 8px;
+  padding: 28px 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 14px;
+  }
 `;
 
 const Logo = styled.div`
-  font-size: 24px;
+  color: #f3d59a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 26px;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 0 4px;
+  }
 `;
 
 const SidebarButton = styled.button`
-  background: ${(props) => (props.active ? "#b90315" : "transparent")};
-  color: white;
+  background: ${(props) => (props.active ? "#e86f2d" : "transparent")};
+  color: ${(props) => (props.active ? "#111111" : "#fff7e8")};
   border: none;
-  padding: 12px 10px;
-  margin-bottom: 10px;
+  padding: 12px;
   text-align: left;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
   font-weight: bold;
-  &:hover { background: #b90315; }
+  transition: background 0.2s ease, color 0.2s ease;
+  &:hover { background: #f3d59a; color: #111111; }
 `;
 
 const LogoutButtonSidebar = styled.button`
   margin-top: auto;
-  background: #520109;
-  color: white;
+  background: #2c1810;
+  color: #fff7e8;
   border: none;
-  padding: 12px 10px;
+  padding: 12px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
   font-weight: bold;
-  &:hover { background: #4a0000; }
+  &:hover { background: #6b3e26; }
+
+  @media (max-width: 768px) {
+    margin: 0 0 0 auto;
+  }
 `;
 
 const Content = styled.div`
   flex: 1;
-  padding: 20px;
-  background: #f5f5f5;
+  min-width: 0;
+  padding: clamp(16px, 3vw, 36px);
+  background: #fff7e8;
 `;
